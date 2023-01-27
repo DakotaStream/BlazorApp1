@@ -1,0 +1,50 @@
+﻿
+@page "/newthingtwo"
+
+<PageTitle>Try New Things</PageTitle>
+
+<div id="component-container">
+	@DynamicRender
+</div>
+<button @onclick="RenderComponent">Render TextBox</button>
+<button @onclick="ClassOnly">ClassOnly </button>
+
+<MikesBanner Title="First list item loop" Link="https://www.webassemblyman.com/blazor/blazorforloop.html" LinkText="WEBASSEMBLYMAN" />
+@code {
+	string[] items = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+
+	private RenderFragment DynamicRender { get; set; }
+
+	private RenderFragment CreateComponent() => builder =>
+	{
+		builder.OpenComponent(0, typeof(InputText));
+		builder.AddAttribute(1, "Placeholder", "Enter your text");
+		builder.CloseComponent();
+	};
+
+	private void RenderComponent()
+	{
+		DynamicRender = CreateComponent();
+	}
+
+	public class ClassOnly : ComponentBase
+	{
+		public const string Title = "Class Only Component";
+		protected override void BuildRenderTree(RenderTreeBuilder builder)
+		{
+			builder.OpenElement(1, "h3");
+			builder.OpenElement(2, Title);
+			builder.CloseElement();
+		}
+	}
+
+	protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder builder)
+	{
+		builder.AddMarkupContent(0, "<h1>Hello, world!</h1>\\r\\n\\r\\nWelcome to your new app.\\r\\n\\r\\n");
+		builder.OpenComponent<MyFirstBlazorApp.Client.Shared.SurveyPrompt>(1);
+		builder.AddAttribute(2, "Title", "How is Blazor working for you?");
+		builder.CloseComponent();
+	}
+
+}
+

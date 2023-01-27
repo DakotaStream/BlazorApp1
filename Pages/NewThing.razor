@@ -1,0 +1,100 @@
+﻿
+@page "/newthing"
+
+<PageTitle>Try New Things</PageTitle>
+
+<div id="component-container">
+	@DynamicRender
+</div>
+<button @onclick="RenderComponent">Render TextBox</button>
+
+<MikesBanner Title="First list item loop" Link="https://www.webassemblyman.com/blazor/blazorforloop.html" LinkText="WEBASSEMBLYMAN" />
+<ul>
+	@for (int x = 1; x < 6; x++)
+	{
+		<li>
+			Item @x
+		</li>
+	}
+</ul>
+
+<MikesBanner Title="Looping through a list" Link="https://www.webassemblyman.com/blazor/blazorforloop.html" LinkText="WEBASSEMBLYMAN" />
+<ul>
+	@for (int x = 0; x < @items.Length; x++)
+	{
+		<li>
+			@items[@x]
+		</li>
+	}
+</ul>
+
+<MikesBanner Title="Looping with continue" Link="https://www.webassemblyman.com/blazor/blazorforloop.html" LinkText="WEBASSEMBLYMAN" />
+<ul>
+	@for (int x = 0; x < 6; x++)
+	{
+		if (x == 0)
+		{
+			continue;
+		}
+		else
+		{
+			<li>
+				Item @x
+			</li>
+		}
+	}
+</ul>
+
+<MikesBanner Title="Looping with break" Link="https://www.webassemblyman.com/blazor/blazorforloop.html" LinkText="WEBASSEMBLYMAN" />
+<ul>
+	@for (int x = 0; x < 6; x++)
+	{
+		if (x == 3)
+		{
+			break;
+		}
+		else
+		{
+			<li>
+				Item @x
+			</li>
+		}
+	}
+</ul>
+
+@code {
+	string[] items = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+
+	private RenderFragment DynamicRender { get; set; }
+
+	private RenderFragment CreateComponent() => builder =>
+	{
+		builder.OpenComponent(0, typeof(InputText));
+		builder.AddAttribute(1, "Placeholder", "Enter your text");
+		builder.CloseComponent();
+	};
+
+	private void RenderComponent()
+	{
+		DynamicRender = CreateComponent();
+	}
+
+}
+
+
+@*
+<ButtonGroup>
+    @foreach (var item in Items ) {
+        <div class="px-4 d-ib">
+            <Button Url="@item.Url">@item.ButtonName</Button>
+        </div>}
+</ButtonGroup>
+
+@code {
+
+    [Parameter] public IReadOnlyList<ItemType> Items { get; set; }
+
+}
+*@
+
+
