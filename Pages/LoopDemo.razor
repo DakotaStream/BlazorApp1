@@ -1,14 +1,14 @@
 ﻿
-@page "/newthing"
+@page "/loopdemo"
 
-<PageTitle>Try New Things</PageTitle>
+<PageTitle>Loop Demo</PageTitle>
 
 <div id="component-container">
 	@DynamicRender
 </div>
 <button @onclick="RenderComponent">Render TextBox</button>
 
-<MikesBanner Title="First list item loop" Link="https://www.webassemblyman.com/blazor/blazorforloop.html" LinkText="WEBASSEMBLYMAN" />
+<Banner Title="<ul> Loop" Link="https://www.webassemblyman.com/blazor/blazorforloop.html" LinkText="WEBASSEMBLYMAN" />
 <ul>
 	@for (int x = 1; x < 6; x++)
 	{
@@ -18,17 +18,8 @@
 	}
 </ul>
 
-<MikesBanner Title="Looping through a list" Link="https://www.webassemblyman.com/blazor/blazorforloop.html" LinkText="WEBASSEMBLYMAN" />
-<ul>
-	@for (int x = 0; x < @items.Length; x++)
-	{
-		<li>
-			@items[@x]
-		</li>
-	}
-</ul>
 
-<MikesBanner Title="Looping with continue" Link="https://www.webassemblyman.com/blazor/blazorforloop.html" LinkText="WEBASSEMBLYMAN" />
+<Banner Title="<ul>Looping with continue" Link="https://www.webassemblyman.com/blazor/blazorforloop.html" LinkText="WEBASSEMBLYMAN" />
 <ul>
 	@for (int x = 0; x < 6; x++)
 	{
@@ -45,7 +36,7 @@
 	}
 </ul>
 
-<MikesBanner Title="Looping with break" Link="https://www.webassemblyman.com/blazor/blazorforloop.html" LinkText="WEBASSEMBLYMAN" />
+<Banner Title="<ul>Looping with break" Link="https://www.webassemblyman.com/blazor/blazorforloop.html" LinkText="WEBASSEMBLYMAN" />
 <ul>
 	@for (int x = 0; x < 6; x++)
 	{
@@ -61,6 +52,19 @@
 		}
 	}
 </ul>
+
+<Banner Title="<table> Loop to Create Columns with an Array" Link="https://www.webassemblyman.com/blazor/blazorforloop.html" LinkText="WEBASSEMBLYMAN" />
+<Table>
+	<tr>
+	@for (int x = 0; x < @items.Length; x++)
+	{
+		<th>
+			@items[@x]
+		</th>
+	}
+	</tr>
+</Table> 
+
 
 @code {
 	string[] items = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };

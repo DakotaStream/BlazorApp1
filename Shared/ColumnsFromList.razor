@@ -1,0 +1,47 @@
+﻿
+<Banner Title="Component that generates <th> from list" />
+<Table>
+	<tr>
+		@foreach (string myParam in TableHeaders)
+		{
+			<th>
+				@myParam
+			</th>
+		}
+	</tr>
+</Table>
+
+<Banner Title="<th> & <td> from list" />
+<Table>
+
+	<tr>
+		@for (int i = 0; i<numHeaders; i++)
+		{
+			<th>
+				@TableHeaders[i]
+			</th>
+		}
+	</tr>
+	<tr>
+		@for (int i = 0; i<numHeaders; i++)
+		{
+			<td>
+				@TableData[i]
+			</td>
+		}
+	</tr>
+
+</Table>
+
+
+@code {
+	[Parameter]
+	public IReadOnlyList<string> TableHeaders { get; set; }
+	[Parameter]
+	public IReadOnlyList<string> TableData { get; set; }
+	int numHeaders => TableHeaders.Count;
+
+
+    
+
+}
