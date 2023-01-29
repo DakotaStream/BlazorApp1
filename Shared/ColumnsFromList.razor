@@ -1,4 +1,4 @@
-﻿
+﻿@inherits LayoutComponentBase
 <Banner Title="Component that generates <th> from list" />
 <Table>
 	<tr>
@@ -11,7 +11,7 @@
 	</tr>
 </Table>
 
-<Banner Title="<th> & <td> from list" />
+<Banner Title="Component that generates <th> & <td> from list" />
 <Table>
 
 	<tr>
@@ -40,8 +40,4 @@
 	[Parameter]
 	public IReadOnlyList<string> TableData { get; set; }
 	int numHeaders => TableHeaders.Count;
-
-
-    
-
 }

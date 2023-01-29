@@ -1,8 +1,6 @@
-﻿
-@using BlazorApp1.Data
+﻿@using BlazorApp1.Data
 @inject GeneratedColumnsService ColumnService
-
-<div><br />With  Forecast</div>
+<Banner Title="Async Component That Generates <th> From a Class" />
 @if (columns == null)
 {
     <p><em>Loading...</em></p>
@@ -10,43 +8,30 @@
 else
 {
     <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
         <tbody>
-            @foreach (var forecast in columns)
-            {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
+                @foreach (var col in columns)
+                {
+                    <td>
+                        @col.HeaderName<br/>
+                        @col.NumberFound<br/>
+                        @col.Icon<br/>
+                        @col.Date.ToShortDateString()<br />
+                        @col.Summary
+                    </td>
+                }
                 </tr>
-            }
         </tbody>
     </table>
 }
 
 
 @code {
-	[Parameter]
-	public IReadOnlyList<string> TableHeaders { get; set; }
-	[Parameter]
-	public IReadOnlyList<string> TableData { get; set; }
-	int numHeaders => TableHeaders.Count;
-
     private ColumnData[]? columns;
-
+    private int numColumns;
     protected override async Task OnInitializedAsync()
     {
         columns = await ColumnService.GetColumnsAsync(DateOnly.FromDateTime(DateTime.Now));
+        numColumns = columns.Count();
     }
-
-    
-
 }
