@@ -1,0 +1,89 @@
+﻿@page "/slidebar3"
+
+<PageTitle>Slidebar 3</PageTitle>
+https://speckyboy.com/slide-out-sidebars/
+
+
+@if (sidebarOpen)
+{
+	<div class="sidebar" @ref="sidebarElement">
+		<h3>Sidebar</h3>
+		<ul>
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+		</ul>
+	</div>
+}
+
+<div class="content @(sidebarOpen ? "sidebar-open" : "")">
+	<button class="btn btn-primary" @onclick="ShowSidebar">Show Sidebar</button>
+	<h1>Main content</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</div>
+
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col">
+			@if (sidebarOpen)
+			{
+				<div class="sidebar" @ref="sidebarElement">
+					<h3>Sidebar</h3>
+					<ul>
+						<li>Item 1</li>
+						<li>Item 2</li>
+						<li>Item 3</li>
+					</ul>
+				</div>
+			}
+
+			<div class="content @(sidebarOpen ? "sidebar-open" : "")"></div>
+			<button class="btn btn-primary" @onclick="HideSidebar">Show Sidebar</button>
+		</div>
+	</div>
+</div>
+
+<button class="btn btn-primary" @onclick="ShowSidebar">Show Sidebar</button>
+<style>
+	.sidebar {
+		position: fixed;
+		top: 0;
+		right: -250px;
+		width: 250px;
+		height: 100%;
+		background-color: white;
+	}
+
+	.sidebar-open {
+		right: 0;
+	}
+
+	.content {
+		margin-right: 0;
+	}
+
+	.sidebar-open .content {
+		margin-right: 250px;
+	}
+
+	}
+</style>
+
+@code {
+	private bool sidebarOpen = true;
+	private ElementReference sidebarElement;
+	private void HideSidebar()
+	{
+		sidebarOpen = false;
+		StateHasChanged();
+	}
+
+	private void ShowSidebar()
+	{
+		sidebarOpen = true;
+		StateHasChanged();
+	}
+}
+

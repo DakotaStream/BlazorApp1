@@ -1,0 +1,49 @@
+﻿@page "/slidebar4"
+
+<PageTitle>Slidebar 4</PageTitle>
+https://speckyboy.com/slide-out-sidebars/
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-9">
+            <h1>Main Content</h1>
+            <p>This is the main content of the page.</p>
+        </div>
+        <div class="col-3">
+            <button class="btn btn-primary" @onclick="ToggleSidebar">Toggle Sidebar</button>
+            <div class="sidebar @(sidebarVisible ? "" : "d-none")">
+                <h2>Sidebar Content</h2>
+                <p>This is the sidebar content.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #f8f9fa;
+        padding: 10px;
+        z-index: 1000;
+    }
+
+        .sidebar h2 {
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+
+        .sidebar p {
+            font-size: 1.2em;
+        }
+</style>
+
+@code {
+    private bool sidebarVisible = false;
+
+    private void ToggleSidebar()
+    {
+        sidebarVisible = !sidebarVisible;
+    }
+}
+
