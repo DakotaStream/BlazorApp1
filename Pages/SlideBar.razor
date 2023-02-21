@@ -1,0 +1,170 @@
+﻿@page "/slidebar"
+
+<PageTitle>Async Table</PageTitle>
+https://speckyboy.com/slide-out-sidebars/
+
+
+
+<style>
+    #sidebarMenu {
+        visibility: hidden z-index: 1000;*/
+        position: fixed;
+        right: 300px;
+        width: 0;
+        height: 100%;
+        margin-right: -300px;
+        overflow-y: auto;
+        background: #222;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        width: 250px;
+        transform: translateX(360px);
+        transition: transform 250ms ease-in-out;
+        background-color: #EBEBEB;
+
+    }
+
+
+    .sidebarMenuInner {
+        margin: 0;
+        padding: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.10);
+    }
+
+        .sidebarMenuInner li {
+            list-style: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 20px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+        }
+
+            .sidebarMenuInner li span {
+                display: block;
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.50);
+            }
+
+
+    input[type="checkbox"]:checked ~ #sidebarMenu {
+        transform: translateX(0);
+    }
+
+    input[type=checkbox] {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        /*display: none;*/
+    }
+
+    .sidebarIconToggle {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        cursor: pointer;
+        position: absolute;
+        z-index: 99;
+        height: 100%;
+        width: 100%;
+        top: 22px;
+        left: 200px;
+        height: 22px;
+        width: 22px;
+    }
+
+    .spinner {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background-color: #fff;
+    }
+
+
+    input[type=checkbox] {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        display: none;
+    }
+
+
+
+    .diagonal.part-2 {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        position: relative;
+        float: left;
+        margin-top: 3px;
+    }
+
+    input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        /*transform: rotate(-135deg);*/
+        margin-top: -9px;
+    }
+</style>
+
+<div class="font-italic @(HideLabel ? "d-none" : "d-show")">
+    I am Hidden When HideLabel == true
+</div>
+
+<div class="font-italic @(HideLabel ? "d-none" : "d-show")">
+    I am Hidden When HideLabel == true
+</div>
+
+<button @onclick="@Toggle">Show/Hide</button>
+
+@code {
+    private bool HideLabel { get; set; } = false;
+    private string my360 = "360px";
+    private string my0 = "0px";
+    private void Toggle()
+    {
+        HideLabel = !HideLabel;
+    }
+ }
+
+
+
+<input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+<label for="openSidebarMenu" class="sidebarIconToggle">
+    <div class="spinner diagonal part-2"></div>
+</label>
+
+
+<div id="sidebarMenu" >
+    <table>
+        <tr>
+            <td>hi</td>
+            <td>Hello</td>
+        </tr>
+    </table>
+    <div>This is cool</div>
+    <ul class="sidebar-nav nav navbar-inverse">
+        <li>
+            <a href="#">Link 1</a>
+        </li>
+        <li>
+            <a href="#">Link 2</a>
+        </li>
+    </ul>
+</div>
+
+
+<p role="status">Current count: @currentCount</p>
+
+
+@code {
+    private int currentCount = 0;
+
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+

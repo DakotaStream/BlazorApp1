@@ -2,7 +2,38 @@
 @page "/asynctable"
 
 <PageTitle>Async Table</PageTitle>
+<table>
+    <thead>
+        <tr>
+            @foreach (var column in columns)
+            {
+                <th>@column</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in data)
+        {
+            <Row Component="Row" Columns="columns" Row="row" />
+        }
+    </tbody>
+</table>
 
-
-<Banner Title="Moved this to the above page" />
-
+@code {
+    private List<string> columns = new List<string> { "Name", "Email", "Phone" };
+    private List<Dictionary<string, string>> data = new List<Dictionary<string, string>>
+    {
+        new Dictionary<string, string>
+        {
+            { "Name", "John Doe" },
+            { "Email", "john.doe@example.com" },
+            { "Phone", "555-555-5555" }
+        },
+        new Dictionary<string, string>
+        {
+            { "Name", "Jane Doe" },
+            { "Email", "jane.doe@example.com" },
+            { "Phone", "555-555-5556" }
+        },
+    };
+}
