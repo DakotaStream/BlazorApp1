@@ -33,6 +33,129 @@ https://speckyboy.com/slide-out-sidebars/
     </div>
 
 
+    .myclass {
+  background-color: @if (isBlue) { blue } else { red };
+}
+
+
+@page "/color-changer"
+
+<style>
+  @import "mystyle.css";
+</style>
+
+<h1>Color Changer</h1>
+
+<button @onclick="ChangeColor">Change Color</button>
+
+@code {
+  private bool isBlue = true;
+
+  private void ChangeColor()
+  {
+    isBlue = !isBlue;
+  }
+}
+
+
+
+
+
+
+
+
+
+To change the width of a CSS style in a Blazor program, you can use the following code:
+
+First, create a CSS file with the style you want to change. In this example, we'll create a file called "mystyle.css" with a class called "myclass" that sets the width to 200px:
+
+
+.myclass {
+  width: 200px;
+}
+
+Next, create a Blazor component called "WidthChanger" that contains a text box to enter a new width value and a button to apply the new value. Here's the code for the component:
+
+@page "/width-changer"
+
+<style>
+  @import "mystyle.css";
+</style>
+
+<h1>Width Changer</h1>
+
+<label for="width-input">New Width:</label>
+<input type="text" id="width-input" @bind-value="newWidth" />
+
+<button @onclick="ChangeWidth">Apply</button>
+
+@code {
+  private string newWidth = "";
+
+  private void ChangeWidth()
+  {
+    if (int.TryParse(newWidth, out int result))
+    {
+      StyleBuilder styleBuilder = new StyleBuilder();
+      styleBuilder.Width(result, StyleUnit.Pixel);
+      StyleRenderer styleRenderer = new StyleRenderer();
+      string newStyle = styleRenderer.BuildStyle(styleBuilder);
+      JSRuntime.InvokeVoidAsync("changeWidth", newStyle);
+   
+    
+    }
+  }
+}
+
+
+This component imports the "mystyle.css" file, which contains the "myclass" style we want to change. The component also contains a text box with a bound value to store the new width entered by the user, and a button with an "onclick" event that calls the "ChangeWidth" method when clicked.
+
+In the code section of the component, we define a string variable called "newWidth" that will store the new width entered by the user. The "ChangeWidth" method first checks if the new width value can be parsed to an integer. If it can, the method uses the Blazor "StyleBuilder" and "StyleRenderer" classes to create a new style with the specified width value. The "JSRuntime.InvokeVoidAsync" method is then used to call a JavaScript function called "changeWidth" with the new style as an argument.
+
+Finally, we create the "changeWidth" JavaScript function in the index.html file of the Blazor app. Here's the code for the function:
+
+
+<script>
+  function changeWidth(newStyle) {
+    var elements = document.getElementsByClassName("myclass");
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].setAttribute("style", newStyle);
+    }
+  }
+</script>
+
+
+
+
+
+This function uses the "getElementsByClassName" method to find all elements with the "myclass" class, and then loops through each element and sets its style attribute to the new style passed as an argument.
+
+That's it! Now when you enter a new width value in the text box and click the "Apply" button in the WidthChanger component, the width of any elements with the "myclass" class will be updated to the new value.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @*@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic);*@
 <style>
@@ -280,3 +403,72 @@ nav ul li:hover a i {
   display: none;
 }
 </style>
+
+?
+To change the width of a CSS style in a Blazor program without using JavaScript, you can use the following code:
+
+First, create a CSS file with the style you want to change. In this example, we'll create a file called "mystyle.css" with a c
+lass called "myclass" that sets the width to 200px:
+
+
+.myclass {
+  width: 200px;
+}
+
+
+
+Next, create a Blazor component called "WidthChanger" that contains a text box to enter a new width value and a button to apply the new value. Here's the code for the component:
+
+
+
+@page "/width-changer"
+
+<style>
+  @import "mystyle.css";
+</style>
+
+<h1>Width Changer</h1>
+
+<label for="width-input">New Width:</label>
+<input type="text" id="width-input" @bind-value="newWidth" />
+
+<button @onclick="ChangeWidth">Apply</button>
+
+<div class="myclass" style="@style">This is a test element.</div>
+
+@code {
+  private string newWidth = "";
+  private string style = "";
+
+  private void ChangeWidth()
+  {
+    if (int.TryParse(newWidth, out int result))
+    {
+      StyleBuilder styleBuilder = new StyleBuilder();
+      styleBuilder.Width(result, StyleUnit.Pixel);
+      StyleRenderer styleRenderer = new StyleRenderer();
+      style = styleRenderer.BuildStyle(styleBuilder);
+    }
+  }
+}
+
+
+
+This component imports the "mystyle.css" file, which contains the "myclass" style we want to change.
+The component also contains a text box with a bound value to store the new width entered by the user,
+and a button with an "onclick" event that calls the "ChangeWidth" method when clicked.
+
+In the code section of the component, we define a string variable called "newWidth" that will store
+the new width entered by the user. The "ChangeWidth" method first checks if the new width value can
+be parsed to an integer. If it can, the method uses the Blazor "StyleBuilder" and "StyleRenderer"
+classes to create a new style with the specified width value. The new style is then stored in the
+"style" variable.
+
+Finally, we add a test element with the "myclass" class to the component, and bind the "style" variable
+to its "style" attribute using Blazor's built-in "style" attribute. This allows us to see the updated
+style in action when we enter a new width value and click the "Apply" button in the WidthChanger component.
+
+That's it! Now when you enter a new width value in the text box and click the "Apply" button in the
+WidthChanger component, the width of the test element with the "myclass" class will be updated to the new value.
+
+
