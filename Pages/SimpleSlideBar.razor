@@ -1,0 +1,63 @@
+﻿@page "/simpleslidebar"
+
+<PageTitle>Slidebar 4</PageTitle>
+
+<div style="text-align: right; width: 100%;">
+	<button class="btn btn-primary" @onclick="ToggleSidebar"><i class="oi oi-cog" /></button>
+	<button class="btn btn-primary" @onclick="ToggleSidebar"><i class="oi oi-info" /></button>
+	<button class="btn btn-primary" @onclick="ToggleSidebar"><i class="oi oi-eye" /> </button>
+</div>
+<div class="sidebar @(sidebarVisible ? "" : "d-none")">
+	<button class="btn btn-primary" @onclick="ToggleSidebar"><i class="oi oi-check" /></button>
+	<h2>Sidebar Content</h2>
+
+	@for (int i = 0; i < 90; i++)
+	{
+
+		<div> System Settings<button class="btn btn-primary" @onclick="ToggleSidebar"><i class="oi oi-cog" /></button></div>
+		<div> Info<button class="btn btn-primary" @onclick="ToggleSidebar"><i class="oi oi-info" /></button></div>
+		<div> Privacy Settings<button class="btn btn-primary" @onclick="ToggleSidebar"><i class="oi oi-eye" /> </button></div>
+		<p>Secure your device or pay the price. Row @i</p>
+	}
+	<p>Slidbar Last Line </p>
+</div>
+
+
+@for (int i = 0; i < 80; i++)
+{
+	<p>However, remember that Bootstrap 4 is now flexbox, and many elements are display:flex which can prevent. Row @i</p>
+}
+<p>Last Data Row</p>
+
+
+<style>
+	.sidebar {
+		position: fixed;
+		scroll-behavior: auto;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #f8f9fa;
+		overflow-y: scroll;
+		padding: 10px;
+		z-index: 1000;
+	}
+
+		.sidebar h2 {
+			font-size: 1.5em;
+			margin-top: 0;
+		}
+
+		.sidebar p {
+			font-size: 1.2em;
+		}
+</style>
+
+@code {
+	private bool sidebarVisible = false;
+	private void ToggleSidebar()
+	{
+		sidebarVisible = !sidebarVisible;
+	}
+}
+
