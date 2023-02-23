@@ -1,0 +1,23 @@
+﻿@page "/CSS"
+<h3>CSS</h3>
+
+@* This belongs in app.css *@
+<style>
+    :root {
+        --my-width: 100px;
+    }
+    .example {
+        background-color: #ccc;
+        width: var(--my-width);
+    }
+</style>
+@* ^ This belongs in app.css *@
+
+<h1>Hello, Blazor REPL!</h1>
+<label>Width</label>
+<input @bind-value="@width" />
+<p class="example" style="--my-width: @width">My Width is @width</p>
+
+@code {
+    string width = "100px" ;
+}
