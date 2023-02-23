@@ -1,7 +1,6 @@
 ﻿@page "/CSS"
 <h3>CSS</h3>
 
-@* This belongs in app.css *@
 <style>
     :root {
         --my-width: 100px;
@@ -11,13 +10,46 @@
         width: var(--my-width);
     }
 </style>
-@* ^ This belongs in app.css *@
 
-<h1>Hello, Blazor REPL!</h1>
+<h1>Change CSS Width with Blazor</h1>
 <label>Width</label>
 <input @bind-value="@width" />
 <p class="example" style="--my-width: @width">My Width is @width</p>
+<span><i class="fas fa-info-circle"></i></span>
 
+https://github.com/FortAwesome/Font-Awesome/tree/6.x/svgs/regular
 @code {
     string width = "100px" ;
+}
+
+
+
+<button @onclick="ToggleStyles">Toggle styles</button>
+<div class="@cssClass">
+    This is some text
+</div>
+
+<style>
+    .my-class {
+        background-color: yellow;
+        color: black;
+    }
+</style>
+
+
+
+@code {
+    private string cssClass = "";
+
+    private void ToggleStyles()
+    {
+        if (cssClass == "")
+        {
+            cssClass = "my-class";
+        }
+        else
+        {
+            cssClass = "";
+        }
+    }
 }
