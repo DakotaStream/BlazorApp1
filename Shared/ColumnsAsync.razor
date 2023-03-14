@@ -3,35 +3,72 @@
 <Banner Title="Generates <th> From a Class" />
 @if (columns == null)
 {
-    <p><em>Loading...</em></p>
+	<p><em>Loading...</em></p>
 }
 else
 {
-    <table class="table">
-        <tbody>
-                <tr>
-                @foreach (var col in columns)
-                {
-                    <td>
-                        @col.HeaderName<br/>
-                        @col.NumberFound<br/>
-                        @col.Icon<br/>
-                        @col.Date.ToShortDateString()<br />
-                        @col.Summary
-                    </td>
-                }
-                </tr>
-        </tbody>
-    </table>
+
+	<div class="container mt-3">
+		<div class="table-responsive">
+			<table class="table">
+				<colgroup>
+					@foreach (var col in columns)
+						@for (int i = 0; i < @numColumns; i++)
+						{	
+							if (i % 2 == 0)
+							{
+								
+							<col class="success">
+							}
+							else
+							{
+							<col class="info">
+							}
+						}
+				</colgroup>
+
+				<tbody>
+
+
+
+					<tr>
+						@foreach (var col in columns)
+						{
+							<td>
+								@col.HeaderName<br />
+								@col.NumberFound<br />
+								@col.Icon<br />
+								@col.Date.ToShortDateString()<br />
+								@col.Summary
+							</td>
+						}
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 }
+<style>
+
+	colgroup col.info {
+		background-color: #d9edf7;
+	}
+
+	colgroup col.success {
+		background-color: #dff0d8;
+	}
+</style>
+
 
 
 @code {
-    private ColumnData[]? columns;
-    private int numColumns;
-    protected override async Task OnInitializedAsync()
-    {
-        columns = await ColumnService.GetColumnsAsync(DateOnly.FromDateTime(DateTime.Now));
-        numColumns = columns.Count();
-    }
+	private ColumnData[]? columns;
+	private int numColumns;
+	protected override async Task OnInitializedAsync()
+	{
+		columns = await ColumnService.GetColumnsAsync(DateOnly.FromDateTime(DateTime.Now));
+		numColumns = columns.Count();
+	}
 }
+
+

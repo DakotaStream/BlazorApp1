@@ -6,7 +6,7 @@ namespace BlazorApp1.Data
 		{
 		"Off", "Vacation", "Training", "Over Time", "Lunch", "Sick",
 			"PTO", "Holiday", "AWAL", "Remote", "Bereavemnt","Car Accident",
-			"Family Illness", " Family Emergency"
+			"Family Illness", " Family Emergency", "Fired", "Double Time", "Triple Time","end"
 		};
 		private static readonly string[] Summaries = new[]
 		{
@@ -18,7 +18,7 @@ namespace BlazorApp1.Data
 
 		public Task<ColumnData[]> GetColumnsAsync(DateOnly startDate)
 		{
-			return Task.FromResult(Enumerable.Range(1, 13).Select(index => new ColumnData
+			return Task.FromResult(Enumerable.Range(0, 18).Select(index => new ColumnData
 			{
 				HeaderName = HeaderList[index],
 				NumberFound = Random.Shared.Next(1, 30),
