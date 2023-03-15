@@ -1,5 +1,4 @@
-﻿
-@page "/tables"
+﻿@page "/tables"
 
 <PageTitle>Tables</PageTitle>
 
@@ -56,28 +55,47 @@
 <Banner Title="<table> Loop to Create Columns with an Array" Link="https://www.webassemblyman.com/blazor/blazorforloop.html" LinkText="WEBASSEMBLYMAN" />
 <Table>
 	<tr>
-	@for (int x = 0; x < @items.Length; x++)
-	{
-		<th>
-			@items[@x]
-		</th>
-	}
+		@for (int x = 0; x < @items.Length; x++)
+		{
+			<th>
+				@items[@x]
+			</th>
+		}
 	</tr>
-</Table> 
+</Table>
 
 <Banner Title="ColumnsFromList Shared Component With List Argument" />
-<ColumnsFromList TableHeaders="headerList" TableData="dataList"/>
+<ColumnsFromList TableHeaders="headerList" TableData="dataList" />
 <Banner Title="ColumnsAsync Shared Component" />
-<ColumnsAsync/>
-@code {
-        List<string> headerList = new List<string> { "Header One", "Header Two", "Header Three" };
-        List<string> dataList = new List<string> { "Data One", "Data Two", "Data Three" };
-}
+<ColumnsAsync />
+
+
+<Banner Title="<table> Loop to Create Columns with an Array" Link="https://www.webassemblyman.com/blazor/blazorforloop.html" LinkText="WEBASSEMBLYMAN" />
+<Table>
+	<tr>
+		@for (int x = 0; x < @items.Length; x++)
+		{
+			<th>
+				@items[@x]
+			</th>
+		}
+	</tr>
+	<tr>
+		@for (int x = 0; x < @items.Length; x++)
+		{
+			<td>
+				@items[@x]
+			</td>
+		}
+	</tr>
+</Table>
 
 
 
 
 @code {
+	List<string> headerList = new List<string> { "Header One", "Header Two", "Header Three" };
+	List<string> dataList = new List<string> { "Data One", "Data Two", "Data Three" };
 	string[] items = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
 
 	private RenderFragment DynamicRender { get; set; }

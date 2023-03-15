@@ -1,0 +1,83 @@
+﻿@using BlazorApp1.Data
+@inject GeneratedColumnsService ColumnService
+<Banner Title="Generates <th> From a Class" />
+@if (columns == null)
+{
+		<p><em>Loading...</em></p>
+}
+else
+{
+	<table class="table">
+		<tbody>
+			<tr>
+				<td style="width: 10%">
+					@columns[13].HeaderName<br />
+					@columns[13].NumberFound<br />
+					@columns[13].Date.ToShortDateString()<br />
+					@columns[13].Summary
+				</td>
+				<td style="width: 100px">
+					@columns[14].HeaderName<br />
+					@columns[14].NumberFound<br />
+					@columns[14].Date.ToShortDateString()<br />
+					@columns[14].Summary
+				</td>
+				<td style="width: 100px">
+					@columns[15].HeaderName<br />
+					@columns[15].NumberFound<br />
+					@columns[15].Date.ToShortDateString()<br />
+					@columns[15].Summary
+				</td>
+				<td style="width: 100px">
+					@columns[16].HeaderName<br />
+					@columns[16].NumberFound<br />
+					@columns[16].Date.ToShortDateString()<br />
+					@columns[16].Summary
+				</td>
+			</tr>
+		</tbody>
+	</table>
+}
+
+
+<h1>Change CSS Width with Blazor</h1>
+<label>Width</label>
+<input @bind-value="@width" />
+<p class="example" style="--my-width: @width">My Width is @width</p>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+	private int currentCount = 0;
+
+	private void IncrementCount()
+	{
+		currentCount++;
+		width = currentCount * 10 + "px";
+	}
+}
+
+
+
+@code {
+	private ColumnData[]? columns;
+	private int numColumns;
+	string width = "100px";
+	protected override async Task OnInitializedAsync()
+	{
+		columns = await ColumnService.GetColumnsAsync(DateOnly.FromDateTime(DateTime.Now));
+		numColumns = columns.Count();
+	}
+}
+
+<style>
+	:root {
+		--my-width: 100px;
+	}
+	.example {
+		background-color: #ccc;
+		width: var(--my-width);
+	}
+</style>
