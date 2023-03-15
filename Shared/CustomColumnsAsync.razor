@@ -10,25 +10,25 @@ else
 	<table class="table">
 		<tbody>
 			<tr>
-				<td style="width: 10%">
+				<td class="td1" style="--w1: @w1">
 					@columns[13].HeaderName<br />
 					@columns[13].NumberFound<br />
 					@columns[13].Date.ToShortDateString()<br />
 					@columns[13].Summary
 				</td>
-				<td style="width: 100px">
+				<td class="td2" style="--w2: @w2">
 					@columns[14].HeaderName<br />
 					@columns[14].NumberFound<br />
 					@columns[14].Date.ToShortDateString()<br />
 					@columns[14].Summary
 				</td>
-				<td style="width: 100px">
+				<td class="td3" style="--w3: @w3">
 					@columns[15].HeaderName<br />
 					@columns[15].NumberFound<br />
 					@columns[15].Date.ToShortDateString()<br />
 					@columns[15].Summary
 				</td>
-				<td style="width: 100px">
+				<td class="td4" style="--w4: @w4">
 					@columns[16].HeaderName<br />
 					@columns[16].NumberFound<br />
 					@columns[16].Date.ToShortDateString()<br />
@@ -43,20 +43,100 @@ else
 <h1>Change CSS Width with Blazor</h1>
 <label>Width</label>
 <input @bind-value="@width" />
-<p class="example" style="--my-width: @width">My Width is @width</p>
+<p class="example" style="--my-wdth: @width">My Width is @width</p>
 
 <p role="status">Current count: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<br/>
+
+
+
+<button  @onclick="IncTd1">+</button>
+<button  @onclick="DecTd1">-</button>
+<span>1=@w1</span>
+
+<button  @onclick="IncTd2">+</button>
+<button  @onclick="DecTd2">-</button>
+<span>2=@w2</span>
+
+<button  @onclick="IncTd3">+</button>
+<button  @onclick="DecTd3">-</button>
+<span>3=@w3</span>
+
+<button  @onclick="IncTd4">+</button>
+<button  @onclick="DecTd4">-</button>
+<span>4=@w4</span>
+
+
+
+
+
 
 @code {
-	private int currentCount = 0;
 
+	private int currentCount = 0;
+	string ender = "px";
 	private void IncrementCount()
 	{
 		currentCount++;
 		width = currentCount * 10 + "px";
+		w4 = currentCount * 10 + ender;
 	}
+
+
+	private void IncTd1()
+	{
+		wInt1 = wInt1 +10;
+		w1 = wInt1 + ender;
+	}
+	private void DecTd1()
+	{
+		wInt1 = wInt1 -10;
+		w1 = wInt1 + ender;
+	}
+
+
+
+	private void IncTd2()
+	{
+		wInt2 = wInt2 +10;
+		w2 = wInt2 + ender;
+	}
+	private void DecTd2()
+	{
+		wInt2 = wInt2 -10;
+		w2 = wInt2 + ender;
+	}
+
+	private void IncTd3()
+	{
+		wInt3 = wInt3 +10;
+		w3 = wInt3 + ender;
+	}
+	private void DecTd3()
+	{
+		wInt3 = wInt3 -10;
+		w3 = wInt3 + ender;
+	}
+
+
+
+	private void IncTd4()
+	{
+		wInt4 = wInt4 +10;
+		w4 = wInt4 + ender;
+	}
+	private void DecTd4()
+	{
+		wInt4 = wInt4 -10;
+		w4 = wInt4 + ender;
+	}
+
+
+
+
+
 }
 
 
@@ -65,6 +145,14 @@ else
 	private ColumnData[]? columns;
 	private int numColumns;
 	string width = "100px";
+	int wInt1 = 25;
+	int wInt2 = 25;
+	int wInt3 = 25;
+	int wInt4 = 25;
+	string w1 = "1%";
+	string w2 = "25%";
+	string w3 = "25%";
+	string w4 = "25%";
 	protected override async Task OnInitializedAsync()
 	{
 		columns = await ColumnService.GetColumnsAsync(DateOnly.FromDateTime(DateTime.Now));
@@ -74,10 +162,30 @@ else
 
 <style>
 	:root {
-		--my-width: 100px;
+		--my-wdth: 100px;
+		--w1: 25px;
+		--w2: 25%;
+		--w3: 25%;
+		--w4: 25%;
 	}
 	.example {
 		background-color: #ccc;
-		width: var(--my-width);
+		width: var(--my-wdth);
 	}
+	.td1 {
+		width: var(--w3);
+	}
+
+	.td2 {
+		width: var(--w3);
+	}
+
+	.td3 {
+		width: var(--w3);
+	}
+
+	.td4 {
+		width: var(--w4);
+	}
+
 </style>
