@@ -11,27 +11,45 @@ else
 		<tbody>
 			<tr>
 				<td class="td1" style="--w1: @w1">
-					@columns[13].HeaderName<br />
-					@columns[13].NumberFound<br />
-					@columns[13].Date.ToShortDateString()<br />
+					@columns[13].HeaderName
+					@columns[13].HeaderName
+					@columns[13].HeaderName
+					@columns[13].NumberFound
+					@columns[13].Date.ToShortDateString()
 					@columns[13].Summary
 				</td>
 				<td class="td2" style="--w2: @w2">
-					@columns[14].HeaderName<br />
-					@columns[14].NumberFound<br />
-					@columns[14].Date.ToShortDateString()<br />
+					@columns[14].HeaderName
+					@columns[14].HeaderName
+					@columns[14].HeaderName
+					@columns[14].NumberFound
+					@columns[14].Date.ToShortDateString()
+					@columns[14].Date.ToShortDateString()
+					@columns[14].Date.ToShortDateString()
+					@columns[14].Date.ToShortDateString()
+					@columns[14].Date.ToShortDateString()
+					@columns[14].Date.ToShortDateString()
 					@columns[14].Summary
 				</td>
 				<td class="td3" style="--w3: @w3">
-					@columns[15].HeaderName<br />
-					@columns[15].NumberFound<br />
-					@columns[15].Date.ToShortDateString()<br />
+					@columns[15].HeaderName
+					@columns[15].HeaderName
+					@columns[15].HeaderName
+					@columns[15].NumberFound
+					@columns[15].Date.ToShortDateString()
+					@columns[15].Date.ToShortDateString()
+					@columns[15].Date.ToShortDateString()
+					@columns[15].Date.ToShortDateString()
+					@columns[15].Date.ToShortDateString()
+					@columns[15].Date.ToShortDateString()
 					@columns[15].Summary
 				</td>
 				<td class="td4" style="--w4: @w4">
-					@columns[16].HeaderName<br />
-					@columns[16].NumberFound<br />
-					@columns[16].Date.ToShortDateString()<br />
+					@columns[16].HeaderName
+					@columns[16].HeaderName
+					@columns[16].HeaderName
+					@columns[16].NumberFound
+					@columns[16].Date.ToShortDateString()
 					@columns[16].Summary
 				</td>
 			</tr>
@@ -76,7 +94,7 @@ else
 @code {
 
 	private int currentCount = 0;
-	string ender = "px";
+	string ender = "%";
 	private void IncrementCount()
 	{
 		currentCount++;
@@ -143,16 +161,17 @@ else
 
 @code {
 	private ColumnData[]? columns;
+
 	private int numColumns;
 	string width = "100px";
 	int wInt1 = 25;
 	int wInt2 = 25;
 	int wInt3 = 25;
 	int wInt4 = 25;
-	string w1 = "1%";
-	string w2 = "25%";
-	string w3 = "25%";
-	string w4 = "25%";
+	string w1 = "25px";
+	string w2 = "25px";
+	string w3 = "25px";
+	string w4 = "25px";
 	protected override async Task OnInitializedAsync()
 	{
 		columns = await ColumnService.GetColumnsAsync(DateOnly.FromDateTime(DateTime.Now));
@@ -163,7 +182,7 @@ else
 <style>
 	:root {
 		--my-wdth: 100px;
-		--w1: 25px;
+		--w1: 25%;
 		--w2: 25%;
 		--w3: 25%;
 		--w4: 25%;
