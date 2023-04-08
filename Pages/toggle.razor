@@ -1,0 +1,33 @@
+﻿@page "/toggle"
+<PageTitle>Todo</PageTitle>
+
+<div>@cbTitle<input type="checkbox" @bind="cbState" /></div>
+<div>@cbTitle = @cbState</div>
+
+<div class="form-check form-switch form-switch-sm">
+	<input class="form-check-input" type="checkbox" @bind="tglState" @onclick="ToggleSwitch" id="flexSwitchCheckDefault">
+</div>
+
+
+
+
+
+
+
+
+@code {
+	private string cbTitle { get; set; } = "Check Box Title";
+	private bool cbState { get; set; } = true;
+	private string tglTitle { get; set; } = "Toggle Title";
+	private bool tglState { get; set; } = true;
+
+	private void ToggleSwitch()
+	{
+		cbState = tglState;	
+	}
+	private void CheckBoxClick()
+	{
+		cbState = tglState;	
+	}
+
+}

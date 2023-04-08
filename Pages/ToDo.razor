@@ -1,0 +1,44 @@
+﻿@page "/todo"
+<PageTitle>Todo</PageTitle>
+
+<a href= "https://learn.microsoft.com/en-us/aspnet/core/blazor/tutorials/build-a-blazor-app?source=recommendations&view=aspnetcore-7.0&pivots=server">Todo</a>
+
+<h1>Todo (@todos.Count(todo => !todo.IsDone))</h1>
+
+<ul>
+	@foreach (var todo in todos)
+	{
+		<li>
+			<input type="checkbox" @bind="todo.IsDone" />
+			<input @bind="todo.Title" />
+		</li>
+	}
+</ul>
+
+<input placeholder="Something todo" @bind="newTodo" />
+<button @onclick="AddTodo">Add todo</button>
+
+
+
+@code {
+	private List<TodoItem> todos = new();
+	private string? newTodo;
+
+
+	public class TodoItem
+	{
+		public string? Title { get; set; }
+		public bool IsDone { get; set; }
+	}
+
+
+	private void AddTodo()
+	{
+		if (!string.IsNullOrWhiteSpace(newTodo))
+		{
+			todos.Add(new TodoItem { Title = newTodo });
+			newTodo = string.Empty;
+		}
+	}
+
+}

@@ -61,3 +61,137 @@ https://github.com/FortAwesome/Font-Awesome/tree/6.x/svgs/regular
         }
     }
 }
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container">
+        
+        <div class="switch-holder">
+            <div class="switch-label">
+                <i class="fa fa-bluetooth-b"></i><span>Bluetooth</span>
+            </div>
+            <div class="switch-toggle">
+                <input type="checkbox" id="bluetooth">
+                <label for="bluetooth"></label>
+            </div>
+        </div>
+
+        <div class="switch-holder">
+            <div class="switch-label">
+                <i class="fa fa-wifi"></i><span>wi-fi</span>
+            </div>
+            <div class="switch-toggle">
+                <input type="checkbox" id="wifi">
+                <label for="wifi"></label>
+            </div>
+        </div>
+
+        <div class="switch-holder">
+            <div class="switch-label">
+                <i class="fa fa-map-marker"></i><span>Location</span>
+            </div>
+            <div class="switch-toggle">
+                <input type="checkbox" id="location">
+                <label for="location"></label>
+            </div>
+        </div>
+
+    </div>
+
+<style>
+                * {
+    box-shadow: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #d1dad3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.switch-holder {
+    display: flex;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: -8px -8px 15px rgba(255,255,255,.7),
+                10px 10px 10px rgba(0,0,0, .3),
+                inset 8px 8px 15px rgba(255,255,255,.7),
+                inset 10px 10px 10px rgba(0,0,0, .3);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.switch-label {
+    width: 150px;
+}
+
+.switch-label i {
+    margin-right: 5px;
+}
+
+.switch-toggle {
+    height: 40px;
+}
+
+.switch-toggle input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -2;
+}
+
+.switch-toggle input[type="checkbox"] + label {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 0;
+    cursor: pointer;
+    box-shadow: inset -8px -8px 15px rgba(255,255,255,.6),
+                inset 10px 10px 10px rgba(0,0,0, .25);
+
+}
+
+.switch-toggle input[type="checkbox"] + label::before {
+    position: absolute;
+    content: 'OFF';
+    font-size: 13px;
+    text-align: center;
+    line-height: 25px;
+    top: 8px;
+    left: 8px;
+    width: 45px;
+    height: 25px;
+    border-radius: 20px;
+    background-color: #d1dad3;
+    box-shadow: -3px -3px 5px rgba(255,255,255,.5),
+                3px 3px 5px rgba(0,0,0, .25);
+    transition: .3s ease-in-out;
+}
+
+.switch-toggle input[type="checkbox"]:checked + label::before {
+    left: 50%;
+    content: 'ON';
+    color: #fff;
+    background-color: #00b33c;
+    box-shadow: -3px -3px 5px rgba(255,255,255,.5),
+                3px 3px 5px #00b33c;
+}
+</style>
