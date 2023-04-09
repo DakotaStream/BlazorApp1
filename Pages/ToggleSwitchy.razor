@@ -1,0 +1,614 @@
+﻿@page  "/toggleswitchy"
+
+<a href="/index">Index</a>
+<h3>ToggleSwitchy</h3>
+
+<a href="https://github.com/topics/css-toggle-switch">Github</a>
+
+<div id="content" class="container mt-5">
+	<div class="row">
+		<div class="col-lg-6">
+
+			<div class="row mb-5">
+				<div class="col-12">
+					<h3>Default</h3>
+				</div>
+				<div class="col-12">
+					<label class="ts" for="example_default_1" size="xl">
+						<input checked type="checkbox" id="example_default_1">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_default_2" size="lg">
+						<input checked type="checkbox" id="example_default_2">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_default_3" size="">
+						<input checked type="checkbox" id="example_default_3">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_default_4" size="sm">
+						<input checked type="checkbox" id="example_default_4">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_default_5" size="xs">
+						<input checked type="checkbox" id="example_default_5">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+				</div>
+			</div>
+
+			<div class="row mb-5">
+				<div class="col-12">
+					<h3>Rounded</h3>
+				</div>
+				<div class="col-12">
+					<label class="ts" for="example_rounded_1" size="xl" data-style="rounded">
+						<input checked type="checkbox" id="example_rounded_1">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_rounded_2" size="lg" data-style="rounded">
+						<input checked type="checkbox" id="example_rounded_2">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_rounded_3" size="" data-style="rounded">
+						<input checked type="checkbox" id="example_rounded_3">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_rounded_4" size="sm" data-style="rounded">
+						<input checked type="checkbox" id="example_rounded_4">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_rounded_5" size="xs" data-style="rounded">
+						<input checked type="checkbox" id="example_rounded_5">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+				</div>
+			</div>
+
+			<div class="row mb-5">
+				<div class="col-12">
+					<h3>Square</h3>
+				</div>
+				<div class="col-12">
+					<label class="ts" for="example_square_1" size="xl" data-style="square">
+						<input checked type="checkbox" id="example_square_1">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_square_2" size="lg" data-style="square">
+						<input checked type="checkbox" id="example_square_2">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_square_3" size="" data-style="square">
+						<input checked type="checkbox" id="example_square_3">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_square_4" size="sm" data-style="square">
+						<input checked type="checkbox" id="example_square_4">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_square_5" size="xs" data-style="square">
+						<input checked type="checkbox" id="example_square_5">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+				</div>
+			</div>
+
+			<div class="row mb-5">
+				<div class="col-12">
+					<h3>No Text</h3>
+				</div>
+				<div class="col-12">
+					<label class="ts" for="example_textless_1" size="xl" data-text="false" data-style="rounded">
+						<input checked type="checkbox" id="example_textless_1">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_textless_2" size="lg" data-text="false" data-style="rounded">
+						<input checked type="checkbox" id="example_textless_2">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_textless_3" size="" data-text="false" data-style="rounded">
+						<input checked type="checkbox" id="example_textless_3">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_textless_4" size="sm" data-text="false" data-style="rounded">
+						<input checked type="checkbox" id="example_textless_4">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_textless_5" size="xs" data-text="false" data-style="rounded">
+						<input checked type="checkbox" id="example_textless_5">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-lg-6">
+
+			<div class="row mb-5">
+				<div class="col-12">
+					<h3>Disabled</h3>
+				</div>
+				<div class="col-12">
+					<label class="ts" for="example_disabled_1" size="xl" data-text="false" data-style="rounded">
+						<input disabled checked type="checkbox" id="example_disabled_1">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_disabled_2" size="lg" data-text="false" data-style="rounded">
+						<input disabled checked type="checkbox" id="example_disabled_2">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_disabled_3" size="" data-text="false" data-style="rounded">
+						<input disabled checked type="checkbox" id="example_disabled_3">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_disabled_4" size="sm" data-text="false" data-style="rounded">
+						<input disabled checked type="checkbox" id="example_disabled_4">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_disabled_5" size="xs" data-text="false" data-style="rounded">
+						<input disabled checked type="checkbox" id="example_disabled_5">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+				</div>
+			</div>
+
+			<div class="row mb-5">
+				<div class="col-12">
+					<h3>Colors</h3>
+				</div>
+				<div class="col-12">
+					<label class="ts" for="example_colors_1" size="sm" data-style="rounded" data-color="red">
+						<input checked type="checkbox" id="example_colors_1">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_colors_2" size="sm" data-style="rounded" data-color="orange">
+						<input checked type="checkbox" id="example_colors_2">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_colors_3" size="sm" data-style="rounded" data-color="yellow">
+						<input checked type="checkbox" id="example_colors_3">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_colors_4" size="sm" data-style="rounded" data-color="green">
+						<input checked type="checkbox" id="example_colors_4">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_colors_5" size="sm" data-style="rounded" data-color="blue">
+						<input checked type="checkbox" id="example_colors_5">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_colors_6" size="sm" data-style="rounded" data-color="purple">
+						<input checked type="checkbox" id="example_colors_6">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts" for="example_colors_7" size="sm" data-style="rounded" data-color="gray">
+						<input checked type="checkbox" id="example_colors_7">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+				</div>
+			</div>
+
+			<div class="row mb-5">
+				<div class="col-12">
+					<h3>Labels</h3>
+				</div>
+				<div class="col-12">
+					<label class="ts" for="example_30" size="sm" data-style="rounded">
+						<input checked type="checkbox" id="example_30">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+						<span class="label">Label on right</span>
+					</label>
+				</div>
+				<div class="col-12 mt-3">
+					<label class="ts" for="example_31" size="sm" data-style="rounded" data-label="left">
+						<input checked type="checkbox" id="example_31">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+						<span class="label">Label on left</span>
+					</label>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+@code {
+
+}
+
+
+
+<style>
+
+
+
+	/* Customizable styles */
+
+	/* Colors: Default (blue) */
+	.ts {
+		color: #fff;
+	}
+
+		.ts > input + .toggle:before {
+			content: 'ON';
+		}
+
+		.ts > input + .toggle:after {
+			content: 'OFF';
+		}
+
+		.ts > input + .toggle > .switch {
+			background: #fff;
+		}
+
+		.ts > input + .toggle + .label {
+			color: #000;
+		}
+
+		.ts > input:checked + .toggle {
+			background: #3498db;
+		}
+
+		.ts > input:not(:checked) + .toggle {
+			background: #ccc;
+		}
+
+		.ts > input:checked + .toggle > .switch {
+			border: 3px solid #3498db;
+		}
+
+		.ts > input:not(:checked) + .toggle > .switch {
+			border: 3px solid #ccc;
+		}
+
+		.ts > input:focus + .toggle,
+		.ts > input:active + .toggle {
+			box-shadow: 0 0 5px 3px rgba(0, 119, 200, 0.50);
+		}
+
+		/* Rounded switch corners */
+		.ts > input + .toggle {
+			border-radius: 4px;
+		}
+
+			.ts > input + .toggle .switch {
+				border-radius: 6px;
+			}
+
+	/* //////////////////////////
+	CORE STYLES BELOW - NO TOUCHY
+	////////////////////////// */
+	.ts {
+		display: inline-flex;
+		align-items: center;
+		user-select: none;
+		position: relative;
+		vertical-align: middle;
+		margin-bottom: 0;
+	}
+
+		.ts:hover {
+			cursor: pointer;
+		}
+
+		.ts > input {
+			position: absolute;
+			opacity: 0;
+		}
+
+			.ts > input + .toggle {
+				align-items: center;
+				position: relative;
+			}
+
+			.ts > input + .toggle {
+				overflow: hidden;
+				position: relative;
+				flex-shrink: 0;
+			}
+
+			.ts > input[disabled] + .toggle {
+				opacity: 0.5;
+			}
+
+				.ts > input[disabled] + .toggle:hover {
+					cursor: not-allowed;
+				}
+
+			.ts > input + .toggle {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				cursor: pointer;
+			}
+
+				.ts > input + .toggle > .switch {
+					display: block;
+					height: 100%;
+					position: absolute;
+					right: 0;
+					z-index: 3;
+					box-sizing: border-box;
+				}
+
+				/* Labels */
+				.ts > input + .toggle:before,
+				.ts > input + .toggle:after {
+					display: flex;
+					align-items: center;
+					position: absolute;
+					z-index: 2;
+					height: 100%;
+				}
+
+				.ts > input + .toggle:before {
+					right: 55%;
+				}
+
+				.ts > input + .toggle:after {
+					left: 50%;
+				}
+
+				.ts > input + .toggle + .label {
+					margin-left: 10px;
+				}
+
+		.ts[data-label='left'] > input + .toggle {
+			order: 2;
+		}
+
+			.ts[data-label='left'] > input + .toggle + .label {
+				order: 1;
+				margin-left: 0;
+				margin-right: 10px;
+			}
+
+		/* Show / Hide */
+		.ts > input + .toggle:before {
+			opacity: 0;
+		}
+
+		.ts > input:checked + .toggle:before {
+			opacity: 1;
+		}
+
+		.ts > input:checked + .toggle:after {
+			opacity: 0;
+		}
+
+		/* Transitions */
+		.ts > input + .toggle {
+			transition: background 200ms linear, box-shadow 200ms linear;
+		}
+
+			.ts > input + .toggle:before,
+			.ts > input + .toggle:after {
+				transition: all 200ms linear;
+			}
+
+			.ts > input + .toggle > .switch {
+				transition: right 200ms linear, border-color 200ms linear;
+			}
+		/* //////////////////////////
+	CORE STYLES ABOVE - NO TOUCHY
+	////////////////////////// */
+
+		/* Size: Extra Large */
+		.ts[size='xl'] > input + .toggle {
+			width: 85px;
+			height: 40px;
+		}
+
+			.ts[size='xl'] > input + .toggle > .switch {
+				width: 40px;
+			}
+
+			.ts[size='xl'] > input + .toggle:before,
+			.ts[size='xl'] > input + .toggle:after {
+				font-size: 1.2rem;
+			}
+
+		.ts[size='xl'] > input:not(:checked) + .toggle > .switch {
+			right: calc(100% - 40px);
+		}
+
+		/* Size: Large */
+		.ts[size='lg'] > input + .toggle {
+			width: 75px;
+			height: 35px;
+		}
+
+			.ts[size='lg'] > input + .toggle > .switch {
+				width: 35px;
+			}
+
+			.ts[size='lg'] > input + .toggle:before,
+			.ts[size='lg'] > input + .toggle:after {
+				font-size: 1rem;
+			}
+
+		.ts[size='lg'] > input:not(:checked) + .toggle > .switch {
+			right: calc(100% - 35px);
+		}
+
+		/* Size: Default (Medium) */
+		.ts > input + .toggle {
+			width: 65px;
+			height: 30px;
+		}
+
+			.ts > input + .toggle > .switch {
+				width: 30px;
+			}
+
+			.ts > input + .toggle:before,
+			.ts > input + .toggle:after {
+				font-size: 0.8rem;
+			}
+
+		.ts > input:not(:checked) + .toggle > .switch {
+			right: calc(100% - 30px);
+		}
+
+		/* Size: Small */
+		.ts[size='sm'] > input + .toggle {
+			width: 55px;
+			height: 25px;
+		}
+
+			.ts[size='sm'] > input + .toggle > .switch {
+				width: 25px;
+			}
+
+			.ts[size='sm'] > input + .toggle:before,
+			.ts[size='sm'] > input + .toggle:after {
+				font-size: 0.7rem;
+			}
+
+		.ts[size='sm'] > input:not(:checked) + .toggle > .switch {
+			right: calc(100% - 25px);
+		}
+
+		/* Size: Extra Small */
+		.ts[size='xs'] > input + .toggle {
+			width: 45px;
+			height: 20px;
+		}
+
+			.ts[size='xs'] > input + .toggle > .switch {
+				width: 20px;
+			}
+
+			.ts[size='xs'] > input + .toggle:before,
+			.ts[size='xs'] > input + .toggle:after {
+				font-size: 0.5rem;
+			}
+
+		.ts[size='xs'] > input:not(:checked) + .toggle > .switch {
+			right: calc(100% - 20px);
+		}
+
+		/* Style: Rounded */
+		.ts[data-style='rounded'] > input + .toggle,
+		.ts[data-style='rounded'] > input + .toggle > .switch {
+			border-radius: 50px;
+		}
+
+			.ts[data-style='rounded'] > input + .toggle:before {
+				right: 50%;
+			}
+
+			.ts[data-style='rounded'] > input + .toggle:after {
+				left: 50%;
+			}
+
+
+		/* Text: Off */
+		.ts[data-text='false'] > input + .toggle:before,
+		.ts[data-text='false'] > input + .toggle:after {
+			content: '';
+		}
+
+		.ts[data-text='false'][size='xl'] > input + .toggle {
+			width: 80px;
+		}
+
+		.ts[data-text='false'][size='lg'] > input + .toggle {
+			width: 70px;
+		}
+
+		.ts[data-text='false'] > input + .toggle {
+			width: 60px;
+		}
+
+		.ts[data-text='false'][size='sm'] > input + .toggle {
+			width: 50px;
+		}
+
+		.ts[data-text='false'][size='xs'] > input + .toggle {
+			width: 40px;
+		}
+
+
+		/* Color: Blue */
+		.ts[data-color='blue'] > input:checked + .toggle {
+			background: #3498db;
+		}
+
+			.ts[data-color='blue'] > input:checked + .toggle > .switch {
+				border-color: #3498db;
+			}
+
+
+</style>
