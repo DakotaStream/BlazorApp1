@@ -1,10 +1,8 @@
 ﻿@page  "/toggleswitchy"
 
 <a href="/index">Index</a>
-<h3>ToggleSwitchy</h3>
-
+<h3>Toggles</h3>
 <a href="https://github.com/topics/css-toggle-switch">Github</a>
-
 
 
 			<div class="row mb-5">
@@ -12,40 +10,38 @@
 					<h3>Rounded</h3>
 				</div>
 				<div class="col-12">
-					<label class="ts" for="example_rounded_1" size="xl" data-style="rounded">
+					<label class="ts"  size="xl">
 						<input checked type="checkbox" id="example_rounded_1">
 						<span class="toggle">
 							<span class="switch"></span>
 						</span>
 					</label>
-					<label class="ts" for="example_rounded_2" size="lg" data-style="rounded">
+					<label class="ts"  size="lg">
 						<input checked type="checkbox" id="example_rounded_2">
 						<span class="toggle">
 							<span class="switch"></span>
 						</span>
 					</label>
-					<label class="ts" for="example_rounded_3" size="" data-style="rounded">
+					<label class="ts"  size="" >
 						<input checked type="checkbox" id="example_rounded_3">
 						<span class="toggle">
 							<span class="switch"></span>
 						</span>
 					</label>
-					<label class="ts" for="example_rounded_4" size="sm" data-style="rounded">
+					<label class="ts"  size="sm">
 						<input checked type="checkbox" id="example_rounded_4">
 						<span class="toggle">
 							<span class="switch"></span>
 						</span>
 					</label>
-					<label class="ts" for="example_rounded_5" size="xs" data-style="rounded">
-						<input checked type="checkbox" id="example_rounded_5">
+					<label class="ts"  size="xs">
+						<input checked type="checkbox" >
 						<span class="toggle">
 							<span class="switch"></span>
 						</span>
 					</label>
 				</div>
 			</div>
-
-
 
 
 @code {
@@ -66,11 +62,11 @@
 	}
 
 		.ts > input + .toggle:before {
-			content: 'ON';
+			content: 'On';
 		}
 
 		.ts > input + .toggle:after {
-			content: 'OFF';
+			content: 'Off';
 		}
 
 		.ts > input + .toggle > .switch {
@@ -97,10 +93,10 @@
 			border: 3px solid #ccc;
 		}
 
-		.ts > input:focus + .toggle,
+/*		.ts > input:focus + .toggle,
 		.ts > input:active + .toggle {
 			box-shadow: 0 0 5px 3px rgba(0, 119, 200, 0.50);
-		}
+		}*/
 
 		/* Rounded switch corners */
 		.ts > input + .toggle {
@@ -213,7 +209,7 @@
 		}
 
 		/* Transitions */
-		.ts > input + .toggle {
+/*		.ts > input + .toggle {
 			transition: background 200ms linear, box-shadow 200ms linear;
 		}
 
@@ -224,7 +220,7 @@
 
 			.ts > input + .toggle > .switch {
 				transition: right 200ms linear, border-color 200ms linear;
-			}
+			}*/
 		/* //////////////////////////
 	CORE STYLES ABOVE - NO TOUCHY
 	////////////////////////// */
@@ -325,29 +321,20 @@
 		}
 
 		/* Style: Rounded */
-		.ts[data-style='rounded'] > input + .toggle,
-		.ts[data-style='rounded'] > input + .toggle > .switch {
+		.ts > input + .toggle,
+		.ts > input + .toggle > .switch {
 			border-radius: 50px;
 		}
 
-			.ts[data-style='rounded'] > input + .toggle:before {
+			.ts > input + .toggle:before {
 				right: 50%;
 			}
 
-			.ts[data-style='rounded'] > input + .toggle:after {
+			.ts > input + .toggle:after {
 				left: 50%;
 			}
 
 
-	
-		/* Color: Blue */
-		.ts[data-color='blue'] > input:checked + .toggle {
-			background: #3498db;
-		}
-
-			.ts[data-color='blue'] > input:checked + .toggle > .switch {
-				border-color: #3498db;
-			}
 
 
 </style>
