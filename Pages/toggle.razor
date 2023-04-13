@@ -7,7 +7,7 @@
 <div>@cbTitle = @cbState</div>
 <div>Skinny switch</div>
 <div class="form-check form-switch form-switch-sm">
-	<input class="form-check-input" type="checkbox" @bind="tglState" @onclick="ToggleSwitch" id="flexSwitchCheckDefault">
+	<input class="form-check-input" type="checkbox" @bind="tglState" @onclick="ToggleSwitch2" id="flexSwitchCheckDefault">
 </div>
 
 
@@ -17,8 +17,21 @@
     <label for="switch1">Toggle</label>
 </div>
 
-<div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+<div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" @bind="tglState2" @onclick="ToggleSwitch2" id="flexSwitchCheckDefault">
 	<label class="form-check-label" for="flexSwitchCheckDefault">Bootstrap no additional css</label></div>
+
+@code{
+	private bool tglState2 = true;
+
+	private void ToggleSwitch2()
+	{
+		cbState = tglState2;	
+	}
+
+
+}
+
+
 
 <div>Custom bunch of css on/off</div>
 <label class="toggleSwitch nolabel" onclick="">
@@ -29,6 +42,11 @@
      </span>
 <a></a>
 </label>
+
+
+
+
+
 
 
 
@@ -198,3 +216,303 @@
     color: #fff;
   }
 </style>
+
+
+
+			<div class="row mb-5">
+				<div class="col-12">
+					<h3>tgl</h3>
+				</div>
+				<div class="col-12">
+					<label class="ts"  size="xl">
+						<input checked type="checkbox" id="example_rounded_1">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts"  size="lg">
+						<input checked type="checkbox" id="example_rounded_2">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts"  size="" >
+						<input checked type="checkbox" id="example_rounded_3">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+					<label class="ts"  size="sm">
+						<input checked type="checkbox" id="example_rounded_4">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>
+@*					<label class="ts"  size="xs">
+						<input checked type="checkbox" @bind="tglState2" @onclick="ToggleSwitch2">
+						<span class="toggle">
+							<span class="switch"></span>
+						</span>
+					</label>*@
+				</div>
+			</div>
+
+
+
+
+@code{
+
+}
+<style>
+
+
+
+	/* Customizable styles */
+
+	/* Colors: Default (blue) */
+	.ts {color: #fff;
+	}
+
+		.ts > input + .toggle:before {content: 'On';}
+		.ts > input + .toggle:after {content: 'Off';}
+		.ts > input + .toggle > .switch {background: #fff;	}
+		.ts > input + .toggle + .label {color: #000;}
+		.ts > input:checked + .toggle {background: #3498db;}
+		.ts > input:not(:checked) + .toggle {background: #ccc;	}
+		.ts > input:checked + .toggle > .switch {border: 3px solid #3498db;}
+		.ts > input:not(:checked) + .toggle > .switch {border: 3px solid #ccc;	}
+		.ts > input + .toggle {border-radius: 4px;}
+		.ts > input + .toggle .switch {border-radius: 6px;}
+
+	/* //////////////////////////
+	CORE STYLES BELOW - NO TOUCHY
+	////////////////////////// */
+	.ts {
+		display: inline-flex;
+		align-items: center;
+		user-select: none;
+		position: relative;
+		vertical-align: middle;
+		margin-bottom: 0;
+	}
+
+		.ts:hover {
+			cursor: pointer;
+		}
+
+		.ts > input {
+			position: absolute;
+			opacity: 0;
+		}
+
+			.ts > input + .toggle {
+				align-items: center;
+				position: relative;
+			}
+
+			.ts > input + .toggle {
+				overflow: hidden;
+				position: relative;
+				flex-shrink: 0;
+			}
+
+			.ts > input[disabled] + .toggle {
+				opacity: 0.5;
+			}
+
+				.ts > input[disabled] + .toggle:hover {
+					cursor: not-allowed;
+				}
+
+			.ts > input + .toggle {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				cursor: pointer;
+			}
+
+				.ts > input + .toggle > .switch {
+					display: block;
+					height: 100%;
+					position: absolute;
+					right: 0;
+					z-index: 3;
+					box-sizing: border-box;
+				}
+
+				/* Labels */
+				.ts > input + .toggle:before,
+				.ts > input + .toggle:after {
+					display: flex;
+					align-items: center;
+					position: absolute;
+					z-index: 2;
+					height: 100%;
+				}
+
+				.ts > input + .toggle:before {
+					right: 55%;
+				}
+
+				.ts > input + .toggle:after {
+					left: 50%;
+				}
+
+				.ts > input + .toggle + .label {
+					margin-left: 10px;
+				}
+
+		.ts[data-label='left'] > input + .toggle {
+			order: 2;
+		}
+
+			.ts[data-label='left'] > input + .toggle + .label {
+				order: 1;
+				margin-left: 0;
+				margin-right: 10px;
+			}
+
+		/* Show / Hide */
+		.ts > input + .toggle:before {
+			opacity: 0;
+		}
+
+		.ts > input:checked + .toggle:before {
+			opacity: 1;
+		}
+
+		.ts > input:checked + .toggle:after {
+			opacity: 0;
+		}
+
+		/* Transitions */
+/*		.ts > input + .toggle {
+			transition: background 200ms linear, box-shadow 200ms linear;
+		}
+
+			.ts > input + .toggle:before,
+			.ts > input + .toggle:after {
+				transition: all 200ms linear;
+			}
+
+			.ts > input + .toggle > .switch {
+				transition: right 200ms linear, border-color 200ms linear;
+			}*/
+		/* //////////////////////////
+	CORE STYLES ABOVE - NO TOUCHY
+	////////////////////////// */
+
+		/* Size: Extra Large */
+		.ts[size='xl'] > input + .toggle {
+			width: 85px;
+			height: 40px;
+		}
+
+			.ts[size='xl'] > input + .toggle > .switch {
+				width: 40px;
+			}
+
+			.ts[size='xl'] > input + .toggle:before,
+			.ts[size='xl'] > input + .toggle:after {
+				font-size: 1.2rem;
+			}
+
+		.ts[size='xl'] > input:not(:checked) + .toggle > .switch {
+			right: calc(100% - 40px);
+		}
+
+		/* Size: Large */
+		.ts[size='lg'] > input + .toggle {
+			width: 75px;
+			height: 35px;
+		}
+
+			.ts[size='lg'] > input + .toggle > .switch {
+				width: 35px;
+			}
+
+			.ts[size='lg'] > input + .toggle:before,
+			.ts[size='lg'] > input + .toggle:after {
+				font-size: 1rem;
+			}
+
+		.ts[size='lg'] > input:not(:checked) + .toggle > .switch {
+			right: calc(100% - 35px);
+		}
+
+		/* Size: Default (Medium) */
+		.ts > input + .toggle {
+			width: 65px;
+			height: 30px;
+		}
+
+			.ts > input + .toggle > .switch {
+				width: 30px;
+			}
+
+			.ts > input + .toggle:before,
+			.ts > input + .toggle:after {
+				font-size: 0.8rem;
+			}
+
+		.ts > input:not(:checked) + .toggle > .switch {
+			right: calc(100% - 30px);
+		}
+
+		/* Size: Small */
+		.ts[size='sm'] > input + .toggle {
+			width: 55px;
+			height: 25px;
+		}
+
+			.ts[size='sm'] > input + .toggle > .switch {
+				width: 25px;
+			}
+
+			.ts[size='sm'] > input + .toggle:before,
+			.ts[size='sm'] > input + .toggle:after {
+				font-size: 0.7rem;
+			}
+
+		.ts[size='sm'] > input:not(:checked) + .toggle > .switch {
+			right: calc(100% - 25px);
+		}
+
+		/* Size: Extra Small */
+		.ts[size='xs'] > input + .toggle {
+			width: 45px;
+			height: 20px;
+		}
+
+			.ts[size='xs'] > input + .toggle > .switch {
+				width: 20px;
+			}
+
+			.ts[size='xs'] > input + .toggle:before,
+			.ts[size='xs'] > input + .toggle:after {
+				font-size: 0.5rem;
+			}
+
+		.ts[size='xs'] > input:not(:checked) + .toggle > .switch {
+			right: calc(100% - 20px);
+		}
+
+		/* Style: Rounded */
+		.ts > input + .toggle,
+		.ts > input + .toggle > .switch {
+			border-radius: 50px;
+		}
+
+			.ts > input + .toggle:before {
+				right: 50%;
+			}
+
+			.ts > input + .toggle:after {
+				left: 50%;
+			}
+
+
+
+
+</style>
+

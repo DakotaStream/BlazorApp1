@@ -1,4 +1,11 @@
 ﻿@page "/counter"
+@using System.Threading
+@implements IDisposable
+
+<p>Time @theTime</p>
+<p>Ticks @tTicks</p>
+<p>Tick Time @dTime</p>
+
 
 <PageTitle>Counter</PageTitle>
 
@@ -21,4 +28,30 @@
 	{
 		currentCount++;
 	}
+}
+
+@code {
+
+    string theTime;
+    Timer aTimer;
+    long tTicks;
+    DateTime dTime;
+
+    protected override void OnInitialized()
+    {
+        aTimer = new Timer(Tick, null, 0, 1000);
+    }
+
+    private void Tick(object _)
+    {
+        theTime = DateTime.Now.ToLongTimeString();
+        tTicks = DateTime.Now.Ticks ;
+        dTime = new DateTime(tTicks);
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        aTimer?.Dispose();
+    }
 }
